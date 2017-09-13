@@ -8,11 +8,14 @@
     "instant chat",
     "discover local area"
   ],
-  "website": "https://tick.chat",
   "env": {
     "CONSUMER_KEY": null,
     "CONSUMER_SECRET": null,
     "ACCESS_TOKEN": null,
     "ACCESS_TOKEN_SECRET": null,
-  }
+  },
+  "website": "https://tick.chat",
+  "addons": [
+      "mongolab"
+  ]
 }
