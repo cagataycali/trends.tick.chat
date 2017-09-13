@@ -22,7 +22,17 @@ const addTrend = (country, name, volume, woeid) => {
   return new Promise((resolve, reject) => {
     let newTrend = new Trends({ country, name, volume, woeid })
     newTrend.save((err, doc) => {
-      err ? reject(err['message']) : resolve(doc)
+      if (err) {
+        Trends.findOne({country, name}, (err, trend) => {
+          if (err) {
+            reject(err['message'])
+          } else {
+            resolve(trend)
+          }
+        })
+      } else {
+        resolve(doc)
+      }
     })
   })
 }
@@ -52,7 +62,7 @@ const gatherTrends = (country, lat, lng, callback) => {
       // Get 'country' trends from twitter.
       let gatheredTrends = []
       let trendsFromTwitter = await getTrends(woeid)
-      trendsFromTwitter = trendsFromTwitter.slice(0, 3)
+      trendsFromTwitter = trendsFromTwitter.slice(0, 4)
       console.log('Gathered trends from twitter. Inserting into db.')
       for (let trend of trendsFromTwitter) {
         let newTrend = await addTrend(country, trend.name, trend.tweet_volume, woeid)
