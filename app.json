@@ -1,20 +1,16 @@
 {
-  "name": "tick-chat-trends",
-  "description": "Have your own open-source tick.chat trends..",
+  "name": "trends-tick-chat",
+  "description": "Tick.chat trends services",
   "repository": "https://github.com/cagataycali/trends.tick.chat",
   "logo": "https://cagatay.js.org/spider.png",
-  "keywords": [
-    "tick.chat",
-    "instant chat",
-    "discover local area"
-  ],
-  "env": {
-    "CONSUMER_KEY": "",
-    "CONSUMER_SECRET": "",
-    "ACCESS_TOKEN": "",
-    "ACCESS_TOKEN_SECRET": "",
-  },
+  "keywords": ["tick.chat", "chat", "anonymous chat", "instant chat"],
   "website": "https://tick.chat",
+  "env": {
+    "CONSUMER_KEY": null,
+    "CONSUMER_SECRET": null,
+    "ACCESS_TOKEN": null,
+    "ACCESS_TOKEN_SECRET": null
+  },
   "addons": [
       "mongolab"
   ]
