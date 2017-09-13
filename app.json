@@ -9,10 +9,10 @@
     "discover local area"
   ],
   "env": {
-    "CONSUMER_KEY": null,
-    "CONSUMER_SECRET": null,
-    "ACCESS_TOKEN": null,
-    "ACCESS_TOKEN_SECRET": null,
+    "CONSUMER_KEY": "",
+    "CONSUMER_SECRET": "",
+    "ACCESS_TOKEN": "",
+    "ACCESS_TOKEN_SECRET": "",
   },
   "website": "https://tick.chat",
   "addons": [
