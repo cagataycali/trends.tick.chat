@@ -65,8 +65,12 @@ const gatherTrends = (country, lat, lng, callback) => {
       trendsFromTwitter = trendsFromTwitter.slice(0, 4)
       console.log('Gathered trends from twitter. Inserting into db.')
       for (let trend of trendsFromTwitter) {
-        let newTrend = await addTrend(country, trend.name, trend.tweet_volume, woeid)
-        gatheredTrends.push(newTrend)
+        try {
+          let newTrend = await addTrend(country, trend.name, trend.tweet_volume, woeid)
+          gatheredTrends.push(newTrend)
+        } catch (e) {
+          console.log('adding trend err', e)
+        }
       }
       callback(gatheredTrends)
     })
