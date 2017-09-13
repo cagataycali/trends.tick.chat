@@ -9,8 +9,10 @@ var TrendsSchema = new mongoose.Schema({
   expireAt: { type: Date, default: Date.now }
 })
 
-var mongolabUri = process.env.MONGODB_URI || 'mongodb://heroku_p9b5x3pg:ce7pnqr9udjcaq9pi1p0fgk6mm@ds161873.mlab.com:61873/heroku_p9b5x3pg'
-mongoose.connect(mongolabUri, err => console.log(err ? err : 'Mongo connected.'))
+var mongolabUri = process.env.MONGODB_URI
+mongoose.connect(mongolabUri, (err) => {
+  if (err) console.log(err)
+})
 
 TrendsSchema.index({ 'expireAt': 1 }, { expireAfterSeconds: 3600 })
 
