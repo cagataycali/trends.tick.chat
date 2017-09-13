@@ -7,6 +7,7 @@ app.use(cache('1 hour'))
 
 app.get('/:lat/:lng/:country', (req, res) => {
   let {lat, lng, country} = req.params
+  res.header('Access-Control-Allow-Origin', '*')
   getTrends(country, lat, lng, (trends) => {
     let _trends = trends.map(trend => {
       return {
