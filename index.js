@@ -3,7 +3,7 @@ const app = express()
 const getTrends = require('./db')
 const cache = require('apicache').middleware
 
-app.use(cache('1 hour'))
+// app.use(cache('1 hour'))
 
 app.get('/:lat/:lng/:country', (req, res) => {
   let {lat, lng, country} = req.params
