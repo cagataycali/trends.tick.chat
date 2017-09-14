@@ -49,7 +49,12 @@ const getTrendsFromDB = (country) => {
   })
 }
 
-const gatherTrends = (country, lat, lng, callback) => {
+const gatherTrends = async (country, lat, lng, callback) => {
+  if (country === undefined) {
+    console.log('country is undefined but we find where.');
+    let detail = await details(lat, lng)
+    country = detail.country
+  }
   getTrendsFromDB(country)
     .then(trends => callback(trends))
     .catch(async (err) => {
