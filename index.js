@@ -4,6 +4,7 @@ const getTrends = require('./db')
 const cache = require('apicache').middleware
 
 // app.use(cache('1 hour'))
+
 app.get('/:lat/:lng', (req, res) => {
   let {lat, lng} = req.params
   res.header('Access-Control-Allow-Origin', '*')
